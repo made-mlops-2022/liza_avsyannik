@@ -21,29 +21,29 @@ class MedicalData(BaseModel):
     @validator('age')
     def age_validator(cls, v):
         if v < 0 or v > 100:
-            raise ValueError('Wrong age value')
+            raise ValueError('wrong age value')
         return v
 
     @validator('trestbps')
     def trestbps_validator(cls, v):
         if v < 0 or v > 250:
-            raise ValueError('Wrong trestbps value')
+            raise ValueError('wrong trestbps value')
         return v
 
     @validator('chol')
     def chol_validator(cls, v):
         if v < 0 or v > 700:
-            raise ValueError('Wrong chol value')
+            raise ValueError('wrong chol value')
         return v
 
     @validator('thalach')
     def thalach_validator(cls, v):
         if v < 0 or v > 250:
-            raise ValueError('Wrong thalach value')
+            raise ValueError('wrong thalach value')
         return v
 
     @validator('oldpeak')
     def oldpeak_validator(cls, v):
         if v < 0 or v > 8:
-            raise ValueError('Wrong oldpeak value')
+            raise ValueError('wrong oldpeak value')
         return v

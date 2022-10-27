@@ -1,10 +1,12 @@
 
 import json
-import requests
 import logging
+
 import pandas as pd
 
-logger = logging.getLogger("Requests")
+import requests
+
+logger = logging.getLogger('Requests')
 logger.setLevel(logging.INFO)
 handler = logging.StreamHandler()
 logger.addHandler(handler)

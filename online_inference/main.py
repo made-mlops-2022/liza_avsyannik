@@ -13,10 +13,10 @@ model = None
 transformer = None
 
 
-@app.on_event("startup")
-async def load_model():
-    path_to_model = os.getenv("PATH_TO_MODEL")
-    path_to_transformer = os.getenv("PATH_TO_TRANSFORMER")
+@app.on_event('startup')
+def load_model():
+    path_to_model = os.getenv('PATH_TO_MODEL')
+    path_to_transformer = os.getenv('PATH_TO_TRANSFORMER')
 
     with open(path_to_transformer, 'rb') as f:
         global transformer
