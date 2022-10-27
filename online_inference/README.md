@@ -12,7 +12,7 @@ docker pull lizaavsyannik/online_inference:v5
 
 ### _To run container_
 ```
-docker run --name inference -p 8000:8000 lizaavsyannik/online_inference:v4
+docker run --name inference -p 8000:8000 lizaavsyannik/online_inference:v5
 ```
 Now service is running on _http://127.0.0.1:8000/docs_
 
