@@ -26,7 +26,6 @@ python3 requests/make_requests.py
 docker exec -it inference bash
 python3 -m pytest test_main.py
 ```
-# TODO: fix 
 ### _Docker Image Size Optimizations_
 1. Practice: Don’t install unnecessary packages  
     Implementation: _requirements.txt_ contains only necessary packages  
