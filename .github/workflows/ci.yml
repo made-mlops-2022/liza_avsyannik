@@ -45,4 +45,3 @@ jobs:
         mlflow server --backend-store-uri sqlite:///:memory --default-artifact-root ./mlruns &
         cd ml_project
         python3 -m unittest tests
-        done
