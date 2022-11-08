@@ -26,5 +26,5 @@ def test_predict_dag_loaded(dagbag):
     dag = dagbag.get_dag(dag_id='predict')
     assert dagbag.import_errors == {}
     assert dag is not None
-    assert len(dag.tasks) == 4
+    assert len(dag.tasks) == 3
     print(dag.task_dict)

@@ -6,6 +6,7 @@ from airflow.utils.email import send_email_smtp
 
 
 LOCAL_DATA_DIR = Variable.get('local_data_dir')
+LOCAL_MLRUNS_DIR = Variable.get('local_mlruns_dir')
 
 
 def wait_for_file(file_name):
@@ -14,7 +15,7 @@ def wait_for_file(file_name):
 
 def failure_callback(context):
     dag_run = context.get('dag_run')
-    subject = f'DAG {dag_run} has completed'
+    subject = f'DAG {dag_run} has failed'
     send_email_smtp(to=default_args['email'], subject=subject)
 
 

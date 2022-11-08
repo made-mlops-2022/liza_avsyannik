@@ -46,7 +46,6 @@ def test_predict_dag_structure(dagbag):
     assert_dag_dict_equal(
         {
             'wait-for-predict-data': ['docker-airflow-predict_preprocess'],
-            'wait-for-model': ['docker-airflow-predict_preprocess'],
             'docker-airflow-predict_preprocess': ['docker-airflow-predict'],
             'docker-airflow-predict': [],
         },
