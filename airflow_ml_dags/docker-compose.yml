@@ -15,7 +15,7 @@ x-environment: &airflow_environment
   - AIRFLOW__SMTP__SMTP_STARTTLS=True
   - AIRFLOW__SMTP__SMTP_SSL=False
   - AIRFLOW__SMTP__SMTP_USER=liza.avsyannik@gmail.com
-  - AIRFLOW__SMTP__SMTP_PASSWORD=dspqntjtoqpeqehf
+  - AIRFLOW__SMTP__SMTP_PASSWORD=${PASSWORD}
   - AIRFLOW__SMTP__SMTP_PORT=587
   - AIRFLOW__SMTP__SMTP_MAIL_FROM=liza.avsyannik@gmail.com
 
