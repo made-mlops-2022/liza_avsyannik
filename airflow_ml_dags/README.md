@@ -7,6 +7,8 @@ export FERNET_KEY=$(python3 -c "from cryptography.fernet import Fernet; FERNET_K
 docker-compose up --build
 ```
 
+Airflow now available at http://localhost:8080, _login = admin, password = admin_.
+
 ### _To select production model for inference_
 In MLFlow at http://localhost:5000/#/models choose model and change its stage to `Production`
 ![Screenshot from 2022-11-09 00-53-14](https://user-images.githubusercontent.com/66686119/200684195-5f1f4a5e-504a-43a3-8b18-d22ed823fdab.png)
