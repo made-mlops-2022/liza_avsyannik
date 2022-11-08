@@ -9,7 +9,7 @@ docker-compose up --build
 
 ### _To select production model for inference_
 In MLFlow at http://localhost:5000/#/models choose model and change its stage to `Production`
-![Screensho![Screenshot from 2022-11-09 00-53-14](https://user-images.githubusercontent.com/66686119/200684195-5f1f4a5e-504a-43a3-8b18-d22ed823fdab.png)
+![Screenshot from 2022-11-09 00-53-14](https://user-images.githubusercontent.com/66686119/200684195-5f1f4a5e-504a-43a3-8b18-d22ed823fdab.png)
 ![Screenshot from 2022-11-09 00-58-17](https://user-images.githubusercontent.com/66686119/200684750-36609b08-7ac0-47f6-83cb-cfa72a4282c7.png)
 
 
