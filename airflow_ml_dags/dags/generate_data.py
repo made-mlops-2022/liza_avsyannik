@@ -1,30 +1,20 @@
-from datetime import timedelta
+from datetime import datetime
 
 from airflow import DAG
-from airflow.models import Variable
 from airflow.providers.docker.operators.docker import DockerOperator
-from airflow.utils.dates import days_ago
 from docker.types import Mount
+from utils import LOCAL_DATA_DIR, default_args
 
-
-LOCAL_DATA_DIR = Variable.get('local_data_dir')
-
-default_args = {
-    'owner': 'airflow',
-    'email': ['airflow@example.com'],
-    'retries': 1,
-    'retry_delay': timedelta(minutes=5),
-}
 
 with DAG(
     'generate_data',
     default_args=default_args,
     schedule_interval='@daily',
-    start_date=days_ago(14),  # TODO
+    start_date=datetime(2022, 11, 1)
 ) as dag:
     generate = DockerOperator(
         image='airflow-generate-data',
-        command="--output-dir /data/raw/",
+        command='--output-dir /data/raw/{{ ds }}',
         network_mode='bridge',
         task_id='docker-airflow-generate-data',
         do_xcom_push=False,

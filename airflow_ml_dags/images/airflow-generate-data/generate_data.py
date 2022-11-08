@@ -1,26 +1,29 @@
 import os
 
 import click
+import numpy as np
 import pandas as pd
 from DataSynthesizer.DataDescriber import DataDescriber
 from DataSynthesizer.DataGenerator import DataGenerator
 from DataSynthesizer.lib.utils import display_bayesian_network
 
 
-@click.command("generate")
+@click.command('generate')
 @click.option('--output-dir', type=click.Path(),
               help='Path to store train data')
 def generate_data(output_dir: str):
-    print("*****************8")
-    print(output_dir)
     os.makedirs(output_dir, exist_ok=True)
     synthetic_data = os.path.join(output_dir, 'synthetic_data.csv')
     generate_synthetic_data(synthetic_data)
+
     data = pd.read_csv(synthetic_data)
-    X = data.iloc[:, :-1]
-    y = data.iloc[:, -1]
-    X.to_csv(os.path.join(output_dir, 'data.csv'))
-    y.to_csv(os.path.join(output_dir, 'target.csv'))
+    target_column = data.columns[-1]
+    X = data.drop(target_column, axis=1)
+    y = data[target_column]
+    X['cp'].replace(2, np.NaN)  # to create some missing values to process later
+
+    X.to_csv(os.path.join(output_dir, 'data.csv'), index=False)
+    y.to_csv(os.path.join(output_dir, 'target.csv'), index=False)
     os.remove(synthetic_data)
 
 
@@ -59,6 +62,7 @@ def generate_synthetic_data(synthetic_data: str):
     generator = DataGenerator()
     generator.generate_dataset_in_correlated_attribute_mode(num_tuples_to_generate, description_file)
     generator.save_synthetic_data(synthetic_data)
+    os.remove(description_file)
 
 
 if __name__ == '__main__':
